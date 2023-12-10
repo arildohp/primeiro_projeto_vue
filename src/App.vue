@@ -89,11 +89,12 @@
        },
 
        igual() {
-        this.current = `${this.operator(
-         parseFloat (this.current),
-         parseFloat (this.previous)
-        )}`;
+       if (this.operator && this.previous) {
+        const result = this.operator(parseFloat(this.previous),parseFloat(this.current));
+        this.current = result.toString();
         this.previous = null;
+        this.operatorClicked = true;
+         }
        }
     }   
   }
